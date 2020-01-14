@@ -14,6 +14,7 @@ import ViewCompanyProfile from './views/ViewCompanyProfile'
 import ViewJobPost from './views/ViewJobPost'
 import SearchApplicant from './views/SearchApplicant'
 
+
 Vue.use(Router)
 
 const router =  new Router({

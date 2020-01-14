@@ -3,7 +3,7 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import VueRouter from 'vue-router'
 import router from './routes'
-import {store} from './store/index'
+import store from './state/store'
 import {db} from './firebasedb'
 import { firestorePlugin } from 'vuefire'
 

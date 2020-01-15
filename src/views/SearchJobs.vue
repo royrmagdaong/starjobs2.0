@@ -47,8 +47,8 @@
                 </v-list-item>
 
                 <v-card-actions>
-                <v-btn text color="primary" small router-link to="view-job">See More</v-btn>
-                <v-btn text color="primary" small router-link to="view-job">Apply</v-btn>
+                <v-btn text color="primary" small @click.prevent="setJobViewContent(job)">See More</v-btn>
+                <v-btn text color="primary" small @click.prevent="setJobViewContent(job)">Apply</v-btn>
                 </v-card-actions>
             </v-card>
           </v-col>
@@ -70,6 +70,12 @@ export default {
     data:()=>({
     }),
     computed: mapGetters(['getAllJobs']),
+    methods:{
+        setJobViewContent(content){
+            this.$store.dispatch('jobInfo/setJobInfo', content);
+            this.$router.push('/view-job')
+        }
+    }
 }
 
 </script>

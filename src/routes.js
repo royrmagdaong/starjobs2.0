@@ -13,6 +13,7 @@ import SearchCompany from './views/SearchCompany'
 import ViewCompanyProfile from './views/ViewCompanyProfile'
 import ViewJobPost from './views/ViewJobPost'
 import SearchApplicant from './views/SearchApplicant'
+import ViewApplicantProfile from './views/ViewApplicantProfile'
 
 
 Vue.use(Router)
@@ -45,7 +46,10 @@ const router =  new Router({
     {
       path: '/view-company',
       name: 'view-company',
-      component: ViewCompanyProfile
+      component: ViewCompanyProfile,
+      meta:{
+        viewCompany: true,
+      }
     },
     {
       path: '/view-job',
@@ -101,6 +105,15 @@ const router =  new Router({
       }
     },
     {
+      path: '/applicant-profile',
+      name: 'ViewApplicantProfile',
+      component: ViewApplicantProfile,
+      meta:{
+        requiresAuth: true,
+        viewApplicantProfile:true,
+      }
+    },
+    {
       path: '/post-job',
       name: 'PostJob',
       component: PostJob,
@@ -120,6 +133,8 @@ router.beforeEach((to, from, next) => {
     var companyProfile = to.matched.some( record => record.meta.companyProfile);
     var searchApplicant = to.matched.some( record => record.meta.searchApplicant);
     var searchCompany = to.matched.some( record => record.meta.searchCompany);
+    var viewCompany = to.matched.some( record => record.meta.viewCompany);
+    var viewApplicantProfile = to.matched.some( record => record.meta.viewApplicantProfile);
     var currentUser = db.auth().currentUser;
     var currentDisplayName = false;
 
@@ -145,15 +160,21 @@ router.beforeEach((to, from, next) => {
     }else if(currentDisplayName == 'false' && searchCompany){
       next('search-applicant');
       window.console.log('company trying to access search company, RETURN to Search Applicant');
+    }else if(currentDisplayName == 'false' && viewCompany){
+      next('applicant-profile');
+      window.console.log('company trying to access view company, RETURN to Applicant Profile');
     }else if(currentDisplayName == 'true' && companyProfile && requiresAuth){
       next('profile');
       window.console.log('applicant trying to access company profile view, RETURN to Applicant Profile');
     }else if(currentDisplayName == 'true' && searchApplicant && requiresAuth){
       next('search-jobs');
       window.console.log('applicant trying to access search applicant view, RETURN to search jobs');
+    }else if(currentDisplayName == 'true' && viewApplicantProfile && requiresAuth){
+      next('search-jobs');
+      window.console.log('applicant trying to access View Applicant Profile, RETURN to search jobs');
     }else{
       next();
-      window.console.log('normal route');
+      //window.console.log('normal route');
     } 
   });
 

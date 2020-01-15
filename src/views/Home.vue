@@ -14,15 +14,15 @@
 </template>
 
 <script>
-import Banner from '../components/Banner'
+import Banner from '../components/Home/Banner'
 import Footer from '../components/Footer'
-import JobCategory from '../components/JobCategory'
-import TrustedBy from '../components/TrustedBy'
-import HiringScope from '../components/HiringScope'
-import HowItWorks from '../components/HowItWorks'
-import ChooseOffers from '../components/ChooseOffers'
-import TopSkills from '../components/TopSkills'
-import TrendingSkills from '../components/TrendingSkills'
+import JobCategory from '../components/Home/JobCategory'
+import TrustedBy from '../components/Home/TrustedBy'
+import HiringScope from '../components/Home/HiringScope'
+import HowItWorks from '../components/Home/HowItWorks'
+import ChooseOffers from '../components/Home/ChooseOffers'
+import TopSkills from '../components/Home/TopSkills'
+import TrendingSkills from '../components/Home/TrendingSkills'
 
 
 export default {

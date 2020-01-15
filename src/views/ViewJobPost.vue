@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12">
-        <h1>View Job Post</h1>
+      <v-col cols="12" v-if="getJobInfo">
+        <h1>Job Position: {{ getJobInfo.positionTitle }}</h1>
       </v-col>
     </v-row>
   </v-container>
@@ -11,6 +11,11 @@
 <script>
 export default {
 
+    computed: {
+      getJobInfo(){
+        return this.$store.getters['jobInfo/getJobInfo'];
+      }
+    }
 }
 </script>
 

@@ -156,6 +156,8 @@ export default {
     logout(){
       db.auth().signOut();
       window.console.log('Logged Out');
+
+      this.$router.push('/');
     }
   },
   computed: {

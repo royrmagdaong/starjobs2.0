@@ -324,7 +324,7 @@
                         <v-col cols="12" class="py-0" md="4" lg="3" sm="6" 
                           v-for="(getCompanyJob,index) in getCompanyJobs" :key="index"
                         >
-                          <company-jobs :companyjobs="getCompanyJob"></company-jobs>
+                          <company-jobs :companyjobs="getCompanyJob" ></company-jobs>
                         </v-col>
                       </v-row>
                     </v-container>

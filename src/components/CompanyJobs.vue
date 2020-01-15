@@ -1,5 +1,5 @@
 <template>
-  <v-card tile elevation="0" style="border: 1px solid #B2FF59" class="my-2" router-link to="/view-job">
+  <v-card tile elevation="0" style="border: 1px solid #B2FF59" class="my-2" @click.prevent="setJobViewContent(companyjobs)">
     <p class="title text-center mt-4 mb-0">{{companyjobs.positionTitle}}</p>
     <p class="body-2 text-center font-weight-">{{companyjobs.companyName}}</p>
     <v-divider></v-divider>
@@ -18,7 +18,13 @@
 
 <script>
 export default {
-    props:['companyjobs']
+    props:['companyjobs'],
+    methods:{
+      setJobViewContent(content){
+        this.$store.dispatch('jobInfo/setJobInfo', content);
+        this.$router.push('/view-job')
+      }
+    }
 }
 </script>
 

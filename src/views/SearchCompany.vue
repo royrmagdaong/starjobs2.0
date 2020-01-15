@@ -45,8 +45,8 @@
                 </v-list-item>
 
                 <v-card-actions>
-                <v-btn text color="primary" small>See More</v-btn>
-                <v-btn text color="primary" small>Apply</v-btn>
+                <v-btn text color="primary" small @click.prevent="setCompanyProfileContent(company)">See More</v-btn>
+                <v-btn text color="primary" small @click.prevent="setCompanyProfileContent(company)">Apply</v-btn>
                 </v-card-actions>
             </v-card>
           </v-col>
@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import {dbFirestore} from '../firebasedb'
 
 export default {
     components:{
@@ -71,8 +72,39 @@ export default {
     computed:{
         getCompanies(){
             return this.$store.getters['getCompanies/getCompanies'];
+        },
+        getCompanyIds(){
+            return this.$store.getters['getCompanies/getCompanyIds'];
         }
     },
+    methods:{
+        setCompanyProfileContent(content){
+            this.$store.dispatch('companyProfile/setCompanyProfileInfo', content);
+
+            const companyId = this.getCompanyIds.find(companyId => {
+                return (companyId.companyName === content.companyName && companyId.companyEmail === content.companyEmail);
+            });
+
+
+            var jobPostDocs = dbFirestore.collection("JobPosts").where("uid", "==", companyId.id);
+            var docArr = [];
+            jobPostDocs.get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach(function(doc) {
+                    // doc.data() is never undefined for query doc snapshots
+                    docArr.push(doc.data());
+                });
+
+                this.$store.dispatch('companyProfile/setCompanyJobs', docArr);
+            })
+            .catch(function(error) {
+                window.console.log("Error getting documents: ", error);
+            });
+            
+            // route to company profile view
+            this.$router.push('/view-company')
+        }
+    }
 }
 
 </script>

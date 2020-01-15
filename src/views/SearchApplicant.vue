@@ -48,8 +48,8 @@
                 </v-list-item>
 
                 <v-card-actions>
-                <v-btn text color="primary" small>See More</v-btn>
-                <v-btn text color="primary" small>Hire</v-btn>
+                <v-btn text color="primary" small @click.prevent="setApplicantProfileContent(applicant)">See More</v-btn>
+                <v-btn text color="primary" small @click.prevent="setApplicantProfileContent(applicant)">Hire</v-btn>
                 </v-card-actions>
             </v-card>
           </v-col>
@@ -76,6 +76,12 @@ export default {
             return this.$store.getters['getApplicants/getApplicants'];
         }
     },
+    methods:{
+        setApplicantProfileContent(content){
+            this.$store.dispatch('applicantProfile/setApplicantProfileInfo', content);
+            this.$router.push('/applicant-profile')
+        }
+    }
 }
 
 </script>

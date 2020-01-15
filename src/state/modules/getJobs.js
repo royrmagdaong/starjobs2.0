@@ -13,6 +13,7 @@ export default{
         
         // initStore here are auto run once the webpage loads
         initStore: (context) => {
+
             var jobPostDocs = dbFirestore.collection("JobPosts");
     
             var docArr = [];

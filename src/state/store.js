@@ -8,7 +8,6 @@ Vue.use(Vuex);
 
 // Create Store
 const store =  new Vuex.Store({
-    strict:true,
     modules
 });
 

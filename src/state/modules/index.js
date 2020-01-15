@@ -1,3 +1,6 @@
+// lodash must be npm installed
+// all this code is just to help me to auto import all files inside the modules in store
+
 import camelCase from 'lodash/camelCase'
 
 const requireModule = require.context(".", false, /\.js$/);
@@ -13,4 +16,3 @@ requireModule.keys().forEach(filename => {
 
 export default modules;
 
-// all this code is just to help me to auto import all files inside the modules in store

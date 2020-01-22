@@ -12,7 +12,7 @@
  
 ### Technology Used
 ```
- - Vuejs
+ - Vuejs (Vuex, VueRouter, Vuefire, VueStore)
  - Vuetify
  - Google Firebase for back end
 ```

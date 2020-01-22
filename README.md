@@ -1,7 +1,10 @@
 # starjobs2.0
 
-## Project setup
+## A Jobstreet like website 
+ - where you can register as an applicant to search for available jobs
+ - or register as an employer to post a job and search for applicants
 ```
+
 npm install
 ```
 

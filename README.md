@@ -24,6 +24,6 @@
  - Google Crawlers (Bots) are doesn't wait for the html to be generated Asynchronously so that google doesn't index its pages.
  
 ### Current Resolution
- - i will be using Nuxt.js to handle CSR(Client Side Rendering) and SSR(Server Side Rendering) to make it Universal/somorphic. So that it will satisfies the Google Bot Crawlers and other Search Engine.
+ - i will be using Nuxt.js to handle CSR(Client Side Rendering) and SSR(Server Side Rendering) to make it Universal/isomorphic. For satisfying the Google Bot Crawlers and other Search Engine.
 
  

@@ -1,7 +1,7 @@
 # starjobs2.0
 
 ## A Jobstreet like website 
- - where you can register as an applicant to search for available jobs
+ - where you can register as an applicant to search for available jobs and search company profiles
  - or register as an employer to post a job and search for applicants
  - [Click here to view in browser](https://starjobs.web.app) 
  
